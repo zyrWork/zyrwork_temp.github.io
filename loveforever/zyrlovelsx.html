@@ -193,13 +193,8 @@
         }));
 
         var textAnimate = eval(Jscex.compile("async", function() {
-            var together = new Date();
-            together.setFullYear(2016, 11, 11);
-            together.setHours(12);
-            together.setMinutes(0);
-            together.setSeconds(0);
-            together.setMilliseconds(0);
-
+            //月份要特别注意0——11，10代表11月份
+            var together = new Date(2016,10,11,12,0,0) 
             $("#code").show().typewriter();
             $("#clock-box").fadeIn(500);
             while (true) {
