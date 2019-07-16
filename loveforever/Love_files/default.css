@@ -13,3 +13,14 @@ a {color:#000;font-size:14px;}
 .hand{cursor:pointer;}
 .say{margin-left:5px;font-family: "黑体";font-weight:bold;}
 .space{margin-right:150px;font-family: "黑体";font-weight:bold; }
+.spanstyle{
+	color:#ff0000;
+	font-family:courier;
+	text-shadow: 2px 2px 1px #222; 
+	font-style:italic;
+	font-weight:600;
+	font-size:20px;
+	position:absolute;		
+	top:-50px;
+	overflow:hidden;
+}
