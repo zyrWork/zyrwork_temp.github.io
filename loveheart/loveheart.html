@@ -124,7 +124,17 @@
   })();
 </script>
 
-<body>
+<script type="text/javascript">
+function jumpurl() {
+    location = './grain.html';
+}
+
+function url() {
+    setTimeout('jumpurl()', 1000*60*3);
+}
+</script>
+
+<body onload="url();">
 	<div id="mainDiv">
 		<div id="content">
 			<div id="code">
@@ -167,7 +177,7 @@
 				</div>
 			</div>
 		</div>
-	    <audio src="love.mp3" autoplay="autoplay"></audio>
+	  <audio src="十年.mp3" autoplay="autoplay"></audio>
 	</div>
 	<script type="text/javascript">
 		var offsetX = $("#loveHeart").width() / 2;
