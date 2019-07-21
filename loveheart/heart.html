@@ -1,0 +1,193 @@
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>爱之心语</title>
+    <style type="text/css">
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        background-color: #FF62FF;
+    }
+
+    .content {
+        width: 80%;
+        color: #90F;
+        height: 100%;
+        top: 0px;
+        left: 10%;
+        font-size: 18px;
+        line-height: 25px;
+        font-family: "微软雅黑";
+        margin-top: 0px;
+    }
+
+    body {
+        color: #FFF;
+        padding: 10px;
+        background: #FFF url(bg.jpg) no-repeat fixed top center;
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    .des {
+        font-size: 15px;
+        color: #3C3C3C;
+        /*width: 100%;*/
+        text-shadow: 0px 0px 1px #fff;
+        z-index: 1000;
+        right: 20px;
+        position: fixed !important;
+        bottom: 0px;
+    }
+
+    .des a {
+        color: #3C3C3C;
+        text-shadow: 0px 0px 1px #fff;
+    }
+    </style>
+    <link type="text/css" rel="stylesheet" href="./css/heartdefault.css">
+    <script src="./js/jquery-1.7.1.min.js" language="javascript" type="text/javascript"></script>
+    <script src="./js/tao.js" language="javascript" type="text/javascript"></script>
+</head>
+
+
+<style type="text/css">
+  #outerCircleText {
+      font-style: italic;
+      font-weight: bold;
+      font-family: 'comic sans ms', verdana, arial;
+      color: #ff0000;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 3000;
+      cursor: default;
+  }
+  #outerCircleText div {
+      position: relative;
+  }
+  #outerCircleText div div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+  }
+</style>
+<script type="text/javascript">
+  (function() {
+      var msg = "一生唯秀，为秀一生，心心相印，魂魂相依！！！";
+      var size = 24;
+      var circleY = 0.75;
+      var circleX = 2;
+      var letter_spacing = 5;
+      var diameter = 10;
+      var rotation = 0.4;
+      var speed = 0.3;
+      if (!window.addEventListener && !window.attachEvent || !document.createElement) return;
+      msg = msg.split('');
+      var n = msg.length - 1,
+          a = Math.round(size * diameter * 0.208333),
+          currStep = 20,
+          ymouse = a * circleY + 20,
+          xmouse = a * circleX + 20,
+          y = [],
+          x = [],
+          Y = [],
+          X = [],
+          o = document.createElement('div'),
+          oi = document.createElement('div'),
+          b = document.compatMode && document.compatMode != "BackCompat" ? document.documentElement : document.body,
+          mouse = function(e) {
+              e = e || window.event;
+              ymouse = !isNaN(e.pageY) ? e.pageY : e.clientY; // y-position
+              xmouse = !isNaN(e.pageX) ? e.pageX : e.clientX; // x-position
+          },
+          makecircle = function() { // rotation/positioning
+              if (init.nopy) {
+                  o.style.top = (b || document.body).scrollTop + 'px';
+                  o.style.left = (b || document.body).scrollLeft + 'px';
+              };
+              currStep -= rotation;
+              for (var d, i = n; i > -1; --i) { // makes the circle
+                  d = document.getElementById('iemsg' + i).style;
+                  d.top = Math.round(y[i] + a * Math.sin((currStep + i) / letter_spacing) * circleY - 15) + 'px';
+                  d.left = Math.round(x[i] + a * Math.cos((currStep + i) / letter_spacing) * circleX) + 'px';
+              };
+          },
+          drag = function() { // makes the resistance
+              y[0] = Y[0] += (ymouse - Y[0]) * speed;
+              x[0] = X[0] += (xmouse - 20 - X[0]) * speed;
+              for (var i = n; i > 0; --i) {
+                  y[i] = Y[i] += (y[i - 1] - Y[i]) * speed;
+                  x[i] = X[i] += (x[i - 1] - X[i]) * speed;
+              };
+              makecircle();
+          },
+          init = function() { // appends message divs, & sets initial values for positioning arrays
+              if (!isNaN(window.pageYOffset)) {
+                  ymouse += window.pageYOffset;
+                  xmouse += window.pageXOffset;
+              } else init.nopy = true;
+              for (var d, i = n; i > -1; --i) {
+                  d = document.createElement('div');
+                  d.id = 'iemsg' + i;
+                  d.style.height = d.style.width = a + 'px';
+                  d.appendChild(document.createTextNode(msg[i]));
+                  oi.appendChild(d);
+                  y[i] = x[i] = Y[i] = X[i] = 0;
+              };
+              o.appendChild(oi);
+              document.body.appendChild(o);
+              setInterval(drag, 25);
+          },
+          ascroll = function() {
+              ymouse += window.pageYOffset;
+              xmouse += window.pageXOffset;
+              window.removeEventListener('scroll', ascroll, false);
+          };
+      o.id = 'outerCircleText';
+      o.style.fontSize = size + 'px';
+      if (window.addEventListener) {
+          window.addEventListener('load', init, false);
+          document.addEventListener('mouseover', mouse, false);
+          document.addEventListener('mousemove', mouse, false);
+          if (/Apple/.test(navigator.vendor))
+              window.addEventListener('scroll', ascroll, false);
+      } else if (window.attachEvent) {
+          window.attachEvent('onload', init);
+          document.attachEvent('onmousemove', mouse);
+      };
+  })();
+</script>
+
+<script type="text/javascript">
+function jumpurl() {
+    location = './loveheart.html';
+}
+
+function url() {
+    setTimeout('jumpurl()', 1000*60*4);
+}
+url();
+</script>
+
+<body>
+    <audio src="愿得一人心.mp3" autoplay="autoplay"></audio>
+    <center>
+        <div align="left" class="content"><span id="txt"></span><span id="guang"></span>
+            <span></span>
+        </div>
+    </center>
+    <div id="bubbles" style="visibility:hidden">
+        <img src="./img/1.png">
+        <img src="./img/2.png">
+        <img src="./img/1.png">
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.9}});</script></body>
+
+</html>
