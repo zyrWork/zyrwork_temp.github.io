@@ -1,6 +1,3 @@
-/*
- * http://love.hackerzhou.me
- */
 
 // variables
 var $win = $(window);
